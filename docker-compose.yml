@@ -20,6 +20,8 @@ services:
       - 3000:3000
     networks:
       - scholar-system-network
+    depends_on:
+      - postgres
 
   postgres:
     image: postgres
