@@ -1,0 +1,11 @@
+{
+  "login_failed": "Login falhou. Verifique suas credenciais e tente novamente.",
+  "email_already_used": "Este e-mail já está associado a uma conta. Por favor, utilize outro e-mail ou faça login.",
+  "create_user_failed": "Ocorreu um erro ao criar o usuário. Por favor, tente novamente mais tarde.",
+  "create_user_success": "Usuário criado com sucesso.",
+  "user_not_found": "Usuário não encontrado. Verifique se o nome de usuário está correto ou registre-se para criar uma nova conta.",
+  "update_user_failed": "Ocorreu um erro ao atualizar as informações do usuário. Por favor, tente novamente mais tarde.",
+  "update_user_success": "Informações do usuário atualizadas com sucesso.",
+  "remove_user_failed": "Ocorreu um erro ao remover o usuário. Por favor, tente novamente mais tarde.",
+  "remove_user_success": "Usuário removido com sucesso."
+}

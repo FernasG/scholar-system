@@ -6,4 +6,8 @@ export default (): Configuration => ({
     url: process.env.DATABASE_URL,
     entities: ['dist/**/entities/*.{ts,js}'],
   },
+  jwt_options: {
+    secret: process.env.JWT_SECRET_KEY,
+    signOptions: { expiresIn: '8h' },
+  },
 });
