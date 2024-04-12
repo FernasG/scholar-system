@@ -22,7 +22,8 @@ export class CreateUsersTable1712632755781 implements MigrationInterface {
           {
             name: 'email',
             type: 'varchar',
-            length: '128'
+            length: '128',
+            isUnique: true,
           },
           {
             name: 'password',
@@ -31,23 +32,25 @@ export class CreateUsersTable1712632755781 implements MigrationInterface {
           {
             name: 'created_at',
             type: 'timestamp',
-            default: 'CURRENT_TIMESTAMP'
+            default: 'CURRENT_TIMESTAMP',
           },
           {
             name: 'updated_at',
             type: 'timestamp',
-            default: 'CURRENT_TIMESTAMP'
+            default: 'CURRENT_TIMESTAMP',
           },
           {
             name: 'deleted_at',
             type: 'timestamp',
-            isNullable: true
-          }
+            isNullable: true,
+          },
         ],
       }),
     );
 
-    await queryRunner.query('CREATE TRIGGER set_timestamp BEFORE UPDATE ON users FOR EACH ROW EXECUTE FUNCTION update_updated_at();');
+    await queryRunner.query(
+      'CREATE TRIGGER set_timestamp BEFORE UPDATE ON users FOR EACH ROW EXECUTE FUNCTION update_updated_at();',
+    );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
