@@ -1,9 +1,12 @@
 import { Module } from '@nestjs/common';
-import { ApiModule } from './api/api.module';
-import { ControllersModule } from './controllers/controllers.module';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import configuration from './config/configuration';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { AcceptLanguageResolver, I18nModule } from 'nestjs-i18n';
+import { ControllersModule } from './controllers/controllers.module';
+import { ApiModule } from './api/api.module';
+import { AuthenticationModule } from '@authentication';
+import configuration from '@config/configuration';
+import * as path from 'path';
 
 @Module({
   imports: [
@@ -13,8 +16,17 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       useFactory: (configService: ConfigService) =>
         configService.get('database'),
     }),
-    ApiModule,
+    I18nModule.forRoot({
+      fallbackLanguage: 'pt_BR',
+      loaderOptions: {
+        path: path.join(__dirname, '/i18n/'),
+        watch: true,
+      },
+      resolvers: [AcceptLanguageResolver],
+    }),
+    AuthenticationModule,
     ControllersModule,
+    ApiModule,
   ],
 })
 export class AppModule {}
