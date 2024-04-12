@@ -9,6 +9,16 @@
         "include": "i18n/**/*",
         "watchAssets": true,
         "outDir": "dist/src"
+      },
+      {
+        "include": "../views",
+        "watchAssets": true,
+        "outDir": "dist/views"
+      },
+      {
+        "include": "../public",
+        "watchAssets": true,
+        "outDir": "dist/public"
       }
     ]
   }
