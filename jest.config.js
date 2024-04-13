@@ -22,6 +22,6 @@ module.exports = {
   collectCoverageFrom: [
     '**/*.(t|j)s'
   ],
-  coverageDirectory: '../coverage',
+  coverageDirectory: './coverage',
   testEnvironment: 'node'
 };

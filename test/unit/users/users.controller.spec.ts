@@ -8,6 +8,7 @@ import {
   guardMock,
   usersServiceMock,
 } from './users.mocks';
+import { CreateUserData, UpdateUserData } from './users.data';
 
 describe('Test UsersController', () => {
   let authenticationService: AuthenticationService;
@@ -39,6 +40,10 @@ describe('Test UsersController', () => {
     usersService = moduleRef.get<UsersService>(UsersService);
   });
 
+  afterEach(() => {
+    jest.resetAllMocks();
+  })
+
   it('Controller and Service should be defined', () => {
     expect(authenticationService).toBeDefined();
     expect(usersController).toBeDefined();
@@ -46,33 +51,24 @@ describe('Test UsersController', () => {
   });
 
   it('Controller should call create method in service', async () => {
-    const payload = {
-      username: 'User',
-      email: 'user@gmail.com',
-      password: '123456',
-    };
-    await usersController.create(payload);
+    await usersController.create(CreateUserData);
 
     expect(usersService.create).toHaveBeenCalled();
-    expect(usersService.create).toHaveBeenCalledWith(payload);
+    expect(usersService.create).toHaveBeenCalledWith(CreateUserData);
   });
 
   it('Controller should call login method in authentication service', async () => {
-    const userData = {
-      username: 'User',
-      email: 'user@gmail.com',
-    };
-    const payload = { user: userData };
+    const payload = { user: UpdateUserData };
     await usersController.login(payload);
 
     expect(authenticationService.login).toHaveBeenCalled();
-    expect(authenticationService.login).toHaveBeenCalledWith(userData);
+    expect(authenticationService.login).toHaveBeenCalledWith(UpdateUserData);
   });
 
   it('Controller should call findAll method in service', async () => {
     await usersController.findAll();
 
-    expect(usersService.create).toHaveBeenCalled();
+    expect(usersService.findAll).toHaveBeenCalled();
   });
 
   it('Controller should call findOne method in service', async () => {
@@ -85,14 +81,10 @@ describe('Test UsersController', () => {
 
   it('Controller should call update method in service', async () => {
     const userId = 'ad237de7-3862-4e18-be9f-dcfb5d44c62e';
-    const payload = {
-      username: 'User',
-      password: '123456',
-    };
-    await usersController.update(userId, payload);
+    await usersController.update(userId, UpdateUserData);
 
     expect(usersService.update).toHaveBeenCalled();
-    expect(usersService.update).toHaveBeenCalledWith(userId, payload);
+    expect(usersService.update).toHaveBeenCalledWith(userId, UpdateUserData);
   });
 
   it('Controller should call remove method in service', async () => {

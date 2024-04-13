@@ -53,7 +53,7 @@ export class UsersService {
   }
 
   public async findOne(id: string) {
-    const user = await this.usersRepository.findOne({ where: { id } });
+    const user = await this.usersRepository.findOneBy({ id });
 
     if (!user) {
       const message = this.i18n.t('users.user_not_found');
@@ -64,7 +64,7 @@ export class UsersService {
   }
 
   public async update(id: string, updateUserDto: UpdateUserDto) {
-    const user = await this.usersRepository.findOne({ where: { id } });
+    const user = await this.usersRepository.findOneBy({ id });
 
     if (!user) {
       const message = this.i18n.t('users.user_not_found');
@@ -91,7 +91,7 @@ export class UsersService {
   }
 
   public async remove(id: string) {
-    const user = await this.usersRepository.findOne({ where: { id } });
+    const user = await this.usersRepository.findOneBy({ id });
 
     if (!user) {
       const message = this.i18n.t('users.user_not_found');
