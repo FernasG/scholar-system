@@ -1,4 +1,4 @@
-name: ci-repository:
+name: ci-repository
 run-name: Trigger CI Repository
 on: [push, pull_request]
 jobs:
