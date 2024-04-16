@@ -25,7 +25,7 @@ export class UsersController {
 
   @Post()
   @Public()
-  public async create(@Body() createUserDto: CreateUserDto) {
+  public create(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
   }
 
@@ -33,27 +33,27 @@ export class UsersController {
   @Public()
   @HttpCode(HttpStatus.OK)
   @UseGuards(LocalAuthGuard)
-  login(@Req() req: any) {
+  public login(@Req() req: any) {
     return this.authenticationService.login(req.user);
   }
 
   @Get()
-  findAll() {
+  public findAll() {
     return this.usersService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  public findOne(@Param('id') id: string) {
     return this.usersService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
+  public update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
     return this.usersService.update(id, updateUserDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  public remove(@Param('id') id: string) {
     return this.usersService.remove(id);
   }
 }
