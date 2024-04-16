@@ -1,0 +1,9 @@
+{
+  "create_student_failed": "Ocorreu uma falha ao criar o estudante. Por favor, verifique os dados fornecidos e tente novamente.",
+  "create_student_success": "Estudante criado com sucesso.",
+  "student_not_found": "Estudante não encontrado. Verifique se o ID do estudante está correto ou entre em contato com o administrador.",
+  "update_student_failed": "Ocorreu uma falha ao atualizar os dados do estudante. Por favor, revise as informações fornecidas e tente novamente.",
+  "update_student_success": "Dados do estudante atualizados com sucesso.",
+  "remove_student_failed": "Houve um problema ao remover o estudante. Por favor, tente novamente mais tarde ou entre em contato com o suporte.",
+  "remove_student_success": "Estudante removido com sucesso do sistema."
+}
