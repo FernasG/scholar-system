@@ -3,9 +3,13 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  JoinColumn,
+  JoinTable,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Users } from './users.entity';
 
 @Entity()
 export class Classes {
@@ -17,6 +21,13 @@ export class Classes {
 
   @Column({ type: 'varchar', length: '256' })
   description: string;
+
+  @Column({ type: 'uuid' })
+  user_id: string;
+
+  @ManyToOne(() => Users, (user) => user.classes)
+  @JoinColumn({ name: 'user_id' })
+  user: Users;
 
   @CreateDateColumn({ type: 'timestamp' })
   created_at: Date;
