@@ -4,5 +4,7 @@
   "class_not_found": "Não foi possível encontrar a turma especificada. Verifique o ID da turma e tente novamente.",
   "update_class_failed": "Ocorreu um erro ao tentar atualizar os dados da turma. Por favor, verifique sua conexão e tente novamente.",
   "update_class_success": "As informações da turma foram atualizadas com sucesso!",
-  "remove_class_failed": "Não foi possível remover a turma. Por favor, tente novamente mais tarde."
+  "remove_class_failed": "Não foi possível remover a turma. Por favor, tente novamente mais tarde.",
+  "remove_class_success": "A turma foi removida com sucesso do sistema.",
+  "class_name_already_in_use": "Já existe uma classe com esse nome. Por favor, escolha um nome diferente para a nova classe."
 }

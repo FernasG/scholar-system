@@ -4,7 +4,6 @@ import {
   DeleteDateColumn,
   Entity,
   JoinColumn,
-  JoinTable,
   ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -17,7 +16,7 @@ export class Classes {
   id: string;
 
   @Column({ type: 'varchar', length: '256' })
-  title: string;
+  name: string;
 
   @Column({ type: 'varchar', length: '256' })
   description: string;

@@ -20,7 +20,7 @@ export class CreateClassesTable1714099047928 implements MigrationInterface {
             generationStrategy: 'uuid',
           },
           {
-            name: 'title',
+            name: 'name',
             type: 'varchar',
             length: '256',
           },

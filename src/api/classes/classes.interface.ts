@@ -5,7 +5,7 @@ class BaseClassDto {
   @IsString()
   @MinLength(3)
   @IsNotEmpty()
-  title: string;
+  name: string;
 
   @IsString()
   @MinLength(3)
@@ -20,3 +20,9 @@ export class CreateClassDto extends BaseClassDto {
 }
 
 export class UpdateClassDto extends PartialType(BaseClassDto) {}
+
+export class FindAllClassesDto {
+  @IsUUID()
+  @IsNotEmpty()
+  user_id: string;
+}
