@@ -84,7 +84,7 @@ export class ClassesService {
   }
 
   public async update(id: string, updateClassDto: UpdateClassDto) {
-    const classrom = await this.classesRepository.findOne({ where: { id } });
+    const classrom = await this.classesRepository.findOneBy({ id });
 
     if (!classrom) {
       const message = this.i18n.t('classes.class_not_found');
@@ -124,7 +124,7 @@ export class ClassesService {
   }
 
   public async remove(id: string) {
-    const classrom = await this.classesRepository.findOne({ where: { id } });
+    const classrom = await this.classesRepository.findOneBy({ id });
 
     if (!classrom) {
       const message = this.i18n.t('classes.class_not_found');
