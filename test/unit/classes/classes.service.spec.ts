@@ -11,7 +11,7 @@ import {
   i18nServiceMock,
 } from './classes.mocks';
 
-describe('Test UsersService', () => {
+describe('Test ClassesService', () => {
   let classesRepository: Repository<Classes>;
   let classesService: ClassesService;
   let i18nService: I18nService;
@@ -135,14 +135,14 @@ describe('Test UsersService', () => {
   });
 
   it('Service findOne should throw error when not found class', async () => {
-    const userId = '8687872f-e02d-4d36-b353-cc50a384a8b2';
-    await expect(async () => classesService.findOne(userId)).rejects.toThrow(
+    const classId = '8687872f-e02d-4d36-b353-cc50a384a8b2';
+    await expect(async () => classesService.findOne(classId)).rejects.toThrow(
       'classes.class_not_found',
     );
 
     expect(i18nService.t).toHaveBeenCalled();
     expect(classesRepository.findOne).toHaveBeenCalledWith({
-      where: { id: userId },
+      where: { id: classId },
     });
   });
 
@@ -186,16 +186,16 @@ describe('Test UsersService', () => {
   });
 
   it('Service should throw error when fails to update class', async () => {
-    const userId = 'f61082c5-2817-49c8-9330-b50e3e1f5fd2';
+    const classId = 'f61082c5-2817-49c8-9330-b50e3e1f5fd2';
     const payload = Object.assign({}, UpdateClassData);
     payload.description = 'Class Description';
     await expect(
-      async () => await classesService.update(userId, payload),
+      async () => await classesService.update(classId, payload),
     ).rejects.toThrow('classes.update_class_failed');
 
     expect(i18nService.t).toHaveBeenCalled();
-    expect(classesRepository.findOneBy).toHaveBeenCalledWith({ id: userId });
-    expect(classesRepository.update).toHaveBeenCalledWith(userId, payload);
+    expect(classesRepository.findOneBy).toHaveBeenCalledWith({ id: classId });
+    expect(classesRepository.update).toHaveBeenCalledWith(classId, payload);
   });
 
   it('Service should remove class', async () => {
