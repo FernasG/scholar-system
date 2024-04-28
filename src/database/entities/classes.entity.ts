@@ -4,30 +4,29 @@ import {
   DeleteDateColumn,
   Entity,
   JoinColumn,
-  JoinTable,
-  OneToMany,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Classes } from './classes.entity';
+import { Users } from './users.entity';
 
 @Entity()
-export class Users {
+export class Classes {
   @PrimaryGeneratedColumn()
   id: string;
 
-  @Column({ type: 'varchar', length: 255 })
-  username: string;
+  @Column({ type: 'varchar', length: '256' })
+  name: string;
 
-  @Column({ type: 'varchar', length: 128 })
-  email: string;
+  @Column({ type: 'varchar', length: '256' })
+  description: string;
 
-  @Column({ type: 'text' })
-  password: string;
+  @Column({ type: 'uuid' })
+  user_id: string;
 
-  @OneToMany(() => Classes, (classes) => classes.user)
+  @ManyToOne(() => Users, (user) => user.classes)
   @JoinColumn({ name: 'user_id' })
-  classes: Classes;
+  user: Users;
 
   @CreateDateColumn({ type: 'timestamp' })
   created_at: Date;
