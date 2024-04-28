@@ -36,11 +36,11 @@ export const classesRepositoryMock = {
     return ClassData;
   }),
   save: jest.fn((...params: any) => {
-    const [classrom] = params;
+    const [classroom] = params;
 
-    if (classrom.description !== CreateClassData.description) return null;
+    if (classroom.description !== CreateClassData.description) return null;
 
-    return classrom;
+    return classroom;
   }),
   find: jest.fn(() => []),
   findOne: jest.fn((...params: any) => {

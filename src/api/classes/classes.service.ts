@@ -73,20 +73,20 @@ export class ClassesService {
   }
 
   public async findOne(id: string) {
-    const classrom = await this.classesRepository.findOne({ where: { id } });
+    const classroom = await this.classesRepository.findOne({ where: { id } });
 
-    if (!classrom) {
+    if (!classroom) {
       const message = this.i18n.t('classes.class_not_found');
       throw new NotFoundException(message);
     }
 
-    return { class: classrom };
+    return { class: classroom };
   }
 
   public async update(id: string, updateClassDto: UpdateClassDto) {
-    const classrom = await this.classesRepository.findOneBy({ id });
+    const classroom = await this.classesRepository.findOneBy({ id });
 
-    if (!classrom) {
+    if (!classroom) {
       const message = this.i18n.t('classes.class_not_found');
       throw new NotFoundException(message);
     }
@@ -98,7 +98,7 @@ export class ClassesService {
     if (name) {
       const classExists = await this.classesRepository.findOneBy({
         name,
-        user_id: classrom.user_id,
+        user_id: classroom.user_id,
       });
 
       if (classExists) {
@@ -120,13 +120,13 @@ export class ClassesService {
 
     const message = this.i18n.t('classes.update_class_success');
 
-    return { message, class: classrom };
+    return { message, class: classroom };
   }
 
   public async remove(id: string) {
-    const classrom = await this.classesRepository.findOneBy({ id });
+    const classroom = await this.classesRepository.findOneBy({ id });
 
-    if (!classrom) {
+    if (!classroom) {
       const message = this.i18n.t('classes.class_not_found');
       throw new NotFoundException(message);
     }
