@@ -3,3 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.alert-styled {
+  position: absolute;
+  z-index: 1;
+  top: 5%;
+}
