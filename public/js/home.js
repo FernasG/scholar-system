@@ -31,8 +31,31 @@ const checkVariables = ((email, password) => {
   return checkResult;
 });
 
-const loginRequest = (async () => {
+const handleLoginError = (async ({ response: { data: { message } } }) => {
+  const alertTextElement = document.querySelector('.alert-message');
+  const alertElement = document.querySelector('.alert-styled');
 
+  alertTextElement.textContent = message;
+  alertElement.classList.add('show');
+
+  await delay(3);
+
+  alertElement.classList.remove('show');
+
+  return null;
+});
+
+const loginRequest = (async (email, password) => {
+  const response = await axios
+    .post('/api/users/login', { email, password })
+    .then(({ data }) => data)
+    .catch(handleLoginError);
+
+  if (!response) return null;
+
+  const { id, username, session_token } = response;
+  Storage.setMany({ id, email, username, session_token });
+  window.location.assign('home');
 });
 
 const submitLoginForm = (async () => {
@@ -40,6 +63,5 @@ const submitLoginForm = (async () => {
 
   if (!checkVariables(email, password)) return;
 
-  await loginRequest();
+  await loginRequest(email, password);
 });
-
