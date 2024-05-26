@@ -20,6 +20,7 @@ export class HomeController {
   
   //trocar
   @Get('dashboard')
+  @Public()
   @Render('dashboard')
   public async dashboard() {
     return { message: 'string' };
