@@ -13,3 +13,9 @@ const Storage = {
     }
   })
 };
+
+const Cookie = {
+  set: ((key, value) => {
+    document.cookie += `${key}=${value};`;
+  })
+}
