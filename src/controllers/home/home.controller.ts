@@ -18,6 +18,7 @@ export class HomeController {
   }
 
   @Get('dashboard')
+  @Public()
   @Render('dashboard')
   public async dashboard() {
     return { message: 'string' };
