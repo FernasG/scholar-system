@@ -1,37 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SED - SignUp</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/signup.css">
 </head>
+
 <body>
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
-      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+      <path
+        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
     </symbol>
     <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
-      <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+      <path
+        d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
     </symbol>
     <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
-      <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+      <path
+        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
     </symbol>
   </svg>
 
   <section class="signup-section">
     <div class="alert alert-danger d-flex align-items-center fade alert-styled" role="alert">
       <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
-        <use xlink:href="#exclamation-triangle-fill"/>
+        <use xlink:href="#exclamation-triangle-fill" />
       </svg>
       <div class="alert-message"></div>
     </div>
 
     <div class="alert alert-success d-flex align-items-center fade alert-styled" role="alert" id="success-message">
       <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
-        <use xlink:href="#check-circle-fill"/>
+        <use xlink:href="#check-circle-fill" />
       </svg>
       <div class="alert-message">Usuário criado com sucesso! Redirecionando para a tela de login...</div>
     </div>
@@ -42,45 +48,51 @@
           <div class="card signup-card">
             <div class="row g-0">
               <div class="col-md-6 col-lg-5 d-none d-md-block">
-                <img src="https://images.unsplash.com/photo-1551449896-66e638cbda3d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="signup form" class="img-fluid signup-image"/>
+                <img
+                  src="https://images.unsplash.com/photo-1551449896-66e638cbda3d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="signup form" class="img-fluid signup-image" />
               </div>
               <div class="col-md-6 col-lg-7 d-flex align-items-center">
                 <div class="card-body p-4 p-lg-5 text-black">
                   <form id="signup-form">
                     <div class="logo-section mb-3">
-                      <img src="https://i.ibb.co/cF39L1V/sed-high-resolution-logo-transparent.png" alt="logo" border="0"/>
+                      <img src="https://i.ibb.co/cF39L1V/sed-high-resolution-logo-transparent.png" alt="logo"
+                        border="0" />
                     </div>
                     <h5 class="signup-heading mb-3 pb-3">Crie sua conta</h5>
 
                     <div class="form-group mb-4">
-                      <input type="text" id="username" placeholder="Seu nome" class="form-control form-control-lg"/>
+                      <input type="text" id="username" placeholder="Seu nome" class="form-control form-control-lg" />
                       <label class="form-label" for="username"></label>
                       <div id="username-error" class="error-message"></div>
                     </div>
 
                     <div class="form-group mb-4">
-                      <input type="email" id="email" placeholder="Seu email" class="form-control form-control-lg"/>
+                      <input type="email" id="email" placeholder="Seu email" class="form-control form-control-lg" />
                       <label class="form-label" for="email"></label>
                       <div id="email-error" class="error-message"></div>
                     </div>
 
                     <div class="form-group mb-4">
-                      <input type="password" id="password" placeholder="Senha" class="form-control form-control-lg"/>
+                      <input type="password" id="password" placeholder="Senha" class="form-control form-control-lg" />
                       <label class="form-label" for="password"></label>
                       <div id="password-error" class="error-message"></div>
                     </div>
 
                     <div class="form-group mb-4">
-                      <input type="password" id="confirm-password" placeholder="Confirme a senha" class="form-control form-control-lg"/>
+                      <input type="password" id="confirm-password" placeholder="Confirme a senha"
+                        class="form-control form-control-lg" />
                       <label class="form-label" for="confirm-password"></label>
                       <div id="confirm-password-error" class="error-message"></div>
                     </div>
 
                     <div class="signup-button">
-                      <button class="btn btn-primary btn-lg btn-block" type="button" onclick="submitSignupForm()">Cadastrar</button>
+                      <button class="btn btn-primary btn-lg btn-block" type="button"
+                        onclick="submitSignupForm()">Cadastrar</button>
                     </div>
 
-                    <p class="mb-1 pb-lg-1" style="color: #393f81;">Já tem uma conta? <a href="/" style="color: #393f81;">Entre aqui</a></p>
+                    <p class="mb-1 pb-lg-1" style="color: #393f81;">Já tem uma conta? <a href="/"
+                        style="color: #393f81;">Entre aqui</a></p>
                   </form>
                 </div>
               </div>
@@ -91,8 +103,13 @@
     </div>
   </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js" integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"
+    integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="js/signup.js"></script>
 </body>
+
 </html>

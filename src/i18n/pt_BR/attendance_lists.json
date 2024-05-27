@@ -1,0 +1,9 @@
+{
+  "create_attendance_list_failed": "Ocorreu uma falha ao criar a lista de presença. Por favor, tente novamente mais tarde.",
+  "create_attendance_list_success": "Lista de presença criada com sucesso.",
+  "attendance_list_not_found": "Lista de presença não encontrada. Verifique se os dados estão corretos ou entre em contato com o administrador.",
+  "update_attendance_list_failed": "Ocorreu uma falha ao atualizar a lista de presença. Por favor, tente novamente mais tarde.",
+  "update_attendance_list_success": "Lista de presença atualizada com sucesso.",
+  "remove_attendance_list_failed": "Houve um problema ao remover a lista de presença. Por favor, tente novamente mais tarde.",
+  "remove_attendance_list_success": "Lista de presença removida com sucesso."
+}
