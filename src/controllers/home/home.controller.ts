@@ -1,5 +1,5 @@
-import { Controller, Get, Render } from '@nestjs/common';
 import { Public } from '@guards';
+import { Controller, Get, Render } from '@nestjs/common';
 
 @Controller()
 export class HomeController {
@@ -10,9 +10,16 @@ export class HomeController {
     return;
   }
 
+  @Get('signup')
+  @Public()
+  @Render('signup')
+  public async signup() {
+    return { message: 'string' };
+  }
+
   @Get('dashboard')
-  @Render('Dashboard')
+  @Render('dashboard')
   public async dashboard() {
-    return;
+    return { message: 'string' };
   }
 }
