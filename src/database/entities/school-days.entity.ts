@@ -24,6 +24,9 @@ export class SchoolDays {
   @Column({ type: 'date' })
   date: Date;
 
+  @Column({ type: 'uuid' })
+  class_id: string;
+
   @CreateDateColumn({ type: 'timestamp' })
   created_at: Date;
 

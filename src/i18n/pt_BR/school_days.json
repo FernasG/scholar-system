@@ -1,0 +1,9 @@
+{
+  "create_school_day_failed": "Ocorreu uma falha ao criar o dia letivo. Por favor, tente novamente mais tarde.",
+  "create_school_day_success": "Dia letivo criado com sucesso.",
+  "school_day_not_found": "Dia letivo não encontrado. Verifique se os dados estão corretos ou entre em contato com o administrador.",
+  "update_school_day_failed": "Ocorreu uma falha ao atualizar o dia letivo. Por favor, tente novamente mais tarde.",
+  "update_school_day_success": "Dia letivo atualizado com sucesso.",
+  "remove_school_day_failed": "Houve um problema ao remover o dia letivo. Por favor, tente novamente mais tarde.",
+  "remove_school_day_success": "Dia letivo removido com sucesso."
+}

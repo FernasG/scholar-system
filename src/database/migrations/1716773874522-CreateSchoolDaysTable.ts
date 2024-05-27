@@ -1,4 +1,9 @@
-import { MigrationInterface, QueryRunner, Table } from 'typeorm';
+import {
+  MigrationInterface,
+  QueryRunner,
+  Table,
+  TableForeignKey,
+} from 'typeorm';
 
 export class CreateSchoolDaysTable1716773874522 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
@@ -34,6 +39,10 @@ export class CreateSchoolDaysTable1716773874522 implements MigrationInterface {
             type: 'date',
           },
           {
+            name: 'class_id',
+            type: 'uuid',
+          },
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'CURRENT_TIMESTAMP',
@@ -48,6 +57,14 @@ export class CreateSchoolDaysTable1716773874522 implements MigrationInterface {
             type: 'timestamp',
             isNullable: true,
           },
+        ],
+        foreignKeys: [
+          new TableForeignKey({
+            columnNames: ['class_id'],
+            referencedColumnNames: ['id'],
+            referencedTableName: 'classes',
+            onDelete: 'CASCADE',
+          }),
         ],
       }),
     );
