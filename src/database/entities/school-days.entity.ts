@@ -3,9 +3,12 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  JoinColumn,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { AttendanceLists } from './attendance-lists.entity';
 
 @Entity()
 export class SchoolDays {
@@ -26,6 +29,10 @@ export class SchoolDays {
 
   @Column({ type: 'uuid' })
   class_id: string;
+
+  @OneToMany(() => AttendanceLists, (attendanceLists) => attendanceLists.school_day)
+  @JoinColumn({ name: 'school_day_id' })
+  attendance_lists: AttendanceLists;
 
   @CreateDateColumn({ type: 'timestamp' })
   created_at: Date;
