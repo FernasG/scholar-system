@@ -55,7 +55,7 @@ const loginRequest = (async (email, password) => {
 
   const { id, username, session_token } = response;
   Storage.setMany({ id, email, username, session_token });
-  window.location.assign('home');
+  window.location.assign('dashboard');
 });
 
 const submitLoginForm = (async () => {
