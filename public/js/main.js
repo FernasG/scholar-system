@@ -14,8 +14,30 @@ const Storage = {
   })
 };
 
+const Utils = {
+  toJSON: ((string) => {
+    return string.split(';').reduce((previous, current) => {
+      const [key, value] = current.trim().split('=');
+      previous[key] = value;
+
+      return previous;
+    }, {});
+  }),
+  toString: ((object) => {
+    return Object.entries(object).reduce((previous, current) => {
+      const [key, value] = current;
+      previous += `${key}=${value}; `;
+
+      return previous;
+    }, '').trim();
+  })
+}
+
 const Cookie = {
   set: ((key, value) => {
-    document.cookie += `${key}=${value};`;
+    const cookie = Utils.toJSON(document.cookie);
+    cookie[key] = value;
+
+    document.cookie = Utils.toString(cookie);
   })
 }
