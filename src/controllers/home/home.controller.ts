@@ -18,8 +18,30 @@ export class HomeController {
   }
 
   @Get('dashboard')
+  @Public()
   @Render('Dashboard')
   public async dashboard() {
+    return { message: 'string' };
+  }
+
+  @Get('students')
+  @Public()
+  @Render('Students')
+  public async students() {
+    return { message: 'string' };
+  }
+
+  @Get('classes')
+  @Public()
+  @Render('Classes')
+  public async classes() {
+    return { message: 'string' };
+  }
+
+  @Get('profile')
+  @Public()
+  @Render('Profile')
+  public async profile() {
     return { message: 'string' };
   }
 }
