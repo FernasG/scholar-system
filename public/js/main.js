@@ -16,6 +16,8 @@ const Storage = {
 
 const Utils = {
   toJSON: ((string) => {
+    if (!string) return {};
+
     return string.split(';').reduce((previous, current) => {
       const [key, value] = current.trim().split('=');
       previous[key] = value;
@@ -35,7 +37,7 @@ const Utils = {
 
 const Cookie = {
   set: ((key, value) => {
-    const cookie = Utils.toJSON(document.cookie);
+    const cookie = Utils.toJSON(document.cookie ?? '');
     cookie[key] = value;
 
     document.cookie = Utils.toString(cookie);

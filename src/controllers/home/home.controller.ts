@@ -14,12 +14,24 @@ export class HomeController {
   @Public()
   @Render('SignUp')
   public async signup() {
-    return { message: 'string' };
+    return {};
   }
 
   @Get('dashboard')
   @Render('Dashboard')
   public async dashboard() {
-    return { message: 'string' };
+    return {};
+  }
+
+  @Get('students')
+  @Render('Students')
+  public async students() {
+    return {};
+  }
+
+  @Get('classes')
+  @Render('Classes')
+  public async classes() {
+    return {};
   }
 }
