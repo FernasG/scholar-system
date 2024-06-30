@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turma de Geometria</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/geometria.css">
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="navbar navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand me-auto" href="/dashboard">SED</a>
+      <span class="navbar-text text-white ms-auto me-auto d-flex justify-content-center">
+        Turma de Geometria
+      </span>
+      <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/classes">Turmas</a></li>
+        <li class="nav-item"><a class="nav-link" href="/students">Alunos</a></li>
+      </ul>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-gear"
+            viewBox="0 0 16 16">
+            <path
+              d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1zm3.63-4.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c-.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0" />
+          </svg>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item" href="/settings">Configurações</a></li>
+          <li><a class="dropdown-item" href="/logout">Sair</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mt-4">
+    <div class="row">
+      <div class="col-md-8">
+        <div id="calendar"></div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-header">
+            Gerenciar Aulas
+          </div>
+          <div class="card-body">
+            <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addLessonModal">Adicionar Aula</button>
+          </div>
+        </div>
+        <div class="card mb-4">
+          <div class="card-header">
+            Controle de Frequência
+          </div>
+          <div class="card-body">
+            <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#attendanceModal">Lançar Frequência</button>
+          </div>
+        </div>
+          <div class="card mb-4">
+            <div class="card-header">
+              Anotações sobre Alunos
+            </div>
+            <div class="card-body">
+              <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#observationModal">Cadastrar Anotação</button>
+              <br>
+              <button id="viewObservationsButton" class="btn btn-secondary">Visualizar Anotações</button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="modal fade" id="addLessonModal" tabindex="-1" aria-labelledby="addLessonModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addLessonModalLabel">Adicionar Aula</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="addLessonForm">
+            <div class="mb-3">
+              <label for="lessonDate" class="form-label">Data</label>
+              <input type="date" class="form-control" id="lessonDate" required>
+            </div>
+            <div class="mb-3">
+              <label for="lessonTime" class="form-label">Hora</label>
+              <input type="time" class="form-control" id="lessonTime" required>
+            </div>
+            <div class="mb-3">
+              <label for="lessonTopic" class="form-label">Tema</label>
+              <input type="text" class="form-control" id="lessonTopic" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Adicionar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="editLessonModal" tabindex="-1" aria-labelledby="editLessonModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editLessonModalLabel">Editar Aula</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="editLessonForm">
+            <input type="hidden" id="editLessonId">
+            <div class="mb-3">
+              <label for="editLessonDate" class="form-label">Data</label>
+              <input type="date" class="form-control" id="editLessonDate" required>
+            </div>
+            <div class="mb-3">
+              <label for="editLessonTime" class="form-label">Hora</label>
+              <input type="time" class="form-control" id="editLessonTime" required>
+            </div>
+            <div class="mb-3">
+              <label for="editLessonTopic" class="form-label">Tema</label>
+              <input type="text" class="form-control" id="editLessonTopic" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+          </form>
+          <button id="deleteLessonButton" class="btn btn-danger mt-2">Excluir Aula</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="attendanceModal" tabindex="-1" aria-labelledby="attendanceModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="attendanceModalLabel">Lançar Frequência</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="attendanceForm">
+            <div class="mb-3">
+              <label for="attendanceDate" class="form-label">Data</label>
+              <input type="date" class="form-control" id="attendanceDate" required>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Aluno</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Alan Soares</td>
+                    <td>
+                      <select class="form-select" required>
+                        <option value="Presente">Presente</option>
+                        <option value="Ausente">Ausente</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Breno Cleiton</td>
+                    <td>
+                      <select class="form-select" required>
+                        <option value="Presente">Presente</option>
+                        <option value="Ausente">Ausente</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Carlos Maia</td>
+                    <td>
+                      <select class="form-select" required>
+                        <option value="Presente">Presente</option>
+                        <option value="Ausente">Ausente</option>
+                      </select>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="observationModal" tabindex="-1" aria-labelledby="observationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="observationModalLabel">Cadastrar Anotação</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="observationForm">
+            <div class="mb-3">
+              <label for="observationDate" class="form-label">Data</label>
+              <input type="date" class="form-control" id="observationDate" required>
+            </div>
+            <div class="mb-3">
+              <label for="observationStudent" class="form-label">Aluno</label>
+              <select class="form-select" id="observationStudent" required>
+                <option value="Aluno 1">Alan Soares</option>
+                <option value="Aluno 2">Breno Cleiton</option>
+                <option value="Aluno 3">Carlos Maia</option> 
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="observationText" class="form-label">Anotação</label>
+              <textarea class="form-control" id="observationText" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="viewObservationsModal" tabindex="-1" aria-labelledby="viewObservationsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="viewObservationsModalLabel">Anotações dos Alunos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Aluno</th>
+                  <th>Anotação</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>30-06-2024</td>
+                  <td>Alan Soares</td>
+                  <td>Anotação exemplo 1</td>
+                </tr>
+                <tr>
+                  <td>30-06-2024</td>
+                  <td>Breno Cleiton</td>
+                  <td>Anotação exemplo 2</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast position-fixed bottom-0 end-0 p-3" style="z-index: 11" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-body">
+      Ação realizada com sucesso!
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales-all.min.js"></script>
+  <script src="js/geometria.js"></script>
+</body>
+
+</html>

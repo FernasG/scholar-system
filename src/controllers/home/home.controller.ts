@@ -44,4 +44,12 @@ export class HomeController {
   public async profile() {
     return { message: 'string' };
   }
+
+  @Get('geometria')
+  @Public()
+  @Render('Geometria')
+  public async geometria() {
+    return { message: 'string' };
+  }
+
 }

@@ -1,0 +1,31 @@
+body {
+    background-color: #f5f7fa;
+    color: #34495e;
+  }
+  
+  .navbar {
+    background-color: #2c3e50;
+  }
+  
+  .navbar-brand {
+    color: #2980b9 !important;
+    margin-left: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .navbar-text {
+    color: #ecf0f1;
+  }
+  
+  .nav-link {
+    color: #ecf0f1 !important; 
+  }
+
+  body {
+    padding-top: 4.5rem;
+  }
+  .toast {
+    opacity: 1;
+  }
+  
