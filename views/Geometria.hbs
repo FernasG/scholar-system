@@ -58,18 +58,18 @@
           </div>
           <div class="card-body">
             <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#attendanceModal">Lançar Frequência</button>
+            <button class="btn btn-secondary mb-3" data-bs-toggle="modal" data-bs-target="#viewAttendanceModal">Consultar Frequência</button>
           </div>
         </div>
-          <div class="card mb-4">
-            <div class="card-header">
-              Anotações sobre Alunos
-            </div>
-            <div class="card-body">
-              <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#observationModal">Cadastrar Anotação</button>
-              <br>
-              <button id="viewObservationsButton" class="btn btn-secondary">Visualizar Anotações</button>
-            </div>
+        <div class="card mb-4">
+          <div class="card-header">
+            Anotações sobre Alunos
           </div>
+          <div class="card-body">
+            <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#observationModal">Cadastrar Anotação</button>
+            <button id="viewObservationsButton" class="btn btn-secondary">Visualizar Anotações</button>
+          </div>
+        </div>
       </div>
     </div>
   </main>
@@ -191,6 +191,49 @@
     </div>
   </div>
 
+  <div class="modal fade" id="viewAttendanceModal" tabindex="-1" aria-labelledby="viewAttendanceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="viewAttendanceModalLabel">Consultar Frequência</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="filterAttendanceForm">
+            <div class="mb-3">
+              <label for="filterAttendanceDate" class="form-label">Data</label>
+              <input type="date" class="form-control" id="filterAttendanceDate" required>
+            </div>
+            <button type="button" class="btn btn-primary mb-3" id="filterAttendanceButton">Filtrar</button>
+          </form>
+          <div id="attendanceTableContainer" class="table-responsive" style="display: none;">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Aluno</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="attendanceTableBody">
+                <tr>
+                  <td>30-06-2024</td>
+                  <td>Alan Soares</td>
+                  <td>Presente</td>
+                </tr>
+                <tr>
+                  <td>30-06-2024</td>
+                  <td>Breno Cleiton</td>
+                  <td>Ausente</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="modal fade" id="observationModal" tabindex="-1" aria-labelledby="observationModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -269,6 +312,11 @@
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales-all.min.js"></script>
   <script src="js/geometria.js"></script>
+  <script>
+    document.getElementById('filterAttendanceButton').addEventListener('click', function () {
+      document.getElementById('attendanceTableContainer').style.display = 'block';
+    });
+  </script>
 </body>
 
 </html>
