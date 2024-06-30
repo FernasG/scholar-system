@@ -11,6 +11,7 @@ import {
 } from 'typeorm';
 import { AttendanceLists } from './attendance-lists.entity';
 import { Classes } from './classes.entity';
+import { Annotations } from './annotations.entity';
 
 @Entity()
 export class SchoolDays {
@@ -39,6 +40,9 @@ export class SchoolDays {
   @OneToOne(() => Classes, (classroom) => classroom.school_days)
   @JoinColumn({ name: 'class_id' })
   classroom: Classes;
+
+  @OneToOne(() => Annotations, (annotations) => annotations.school_day)
+  annotations: Annotations;
 
   @CreateDateColumn({ type: 'timestamp' })
   created_at: Date;

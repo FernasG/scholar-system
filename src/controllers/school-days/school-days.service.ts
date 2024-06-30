@@ -11,7 +11,7 @@ export class SchoolDaysService {
       .getRepository(SchoolDays)
       .findOne({
         where: { id },
-        relations: { attendance_lists: true },
+        relations: { attendance_lists: true, annotations: true },
         order: { attendance_lists: { created_at: 'ASC' } }
       });
 
@@ -41,6 +41,8 @@ export class SchoolDaysService {
 
       response.attendance_lists = sortedList;
     }
+
+    console.log(response);
 
     return { school_day: response };
   }
