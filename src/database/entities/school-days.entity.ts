@@ -34,7 +34,7 @@ export class SchoolDays {
 
   @OneToMany(() => AttendanceLists, (attendanceLists) => attendanceLists.school_day)
   @JoinColumn({ name: 'school_day_id' })
-  attendance_lists: AttendanceLists;
+  attendance_lists: AttendanceLists[];
 
   @OneToOne(() => Classes, (classroom) => classroom.school_days)
   @JoinColumn({ name: 'class_id' })

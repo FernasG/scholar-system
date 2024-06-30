@@ -23,7 +23,8 @@ export class ClassesService {
       .getRepository(Classes)
       .findOne({
         where: { id, user_id },
-        relations: { students: true, school_days: true }
+        relations: { students: true, school_days: true },
+        order: { school_days: { date: 'ASC' } }
       });
 
     if (!classroom) throw new NotFoundException();

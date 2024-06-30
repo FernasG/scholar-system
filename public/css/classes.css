@@ -19,6 +19,17 @@ div.col>p>span:first-child {
   font-weight: bold;
 }
 
+div.col>p.spaced {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+div.col>p.spaced>span:first-child {
+  display: flex;
+  align-items: center;
+}
+
 .card {
   border: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

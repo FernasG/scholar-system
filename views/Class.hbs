@@ -70,15 +70,40 @@
       </div>
     </div>
 
+    <div class="modal fade" id="addSchoolDay" tabindex="-1" aria-labelledby="addSchoolDayLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addSchoolDayLabel">Adicionar Dia Letivo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="classDate" class="form-label">Data: </label>
+              <input type="date" class="form-control" id="classDate">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="createSchoolDay('{{class.id}}')">Salvar</button>
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col">
-        <p>
-          <span>{{ class.name }}</span>
-          -
-          <span>{{ class.description }}</span>
+        <p class="spaced">
+          <span>{{ class.name }} - {{ class.description }}</span>
+          <span>
+            <button class="btn btn-danger" onclick="removeClass('{{class.id}}')">
+              Remover Turma
+            </button>
+          </span>
         </p>
       </div>
     </div>
+
     <div class="row">
       <div class="col-md-8">
         <div class="card mb-4">
@@ -111,7 +136,14 @@
       <div class="col-md-4">
         <div class="card mb-4">
           <div class="card-header">
-            Dias Letivos
+            <div>
+              Dias Letivos
+            </div>
+            <div>
+              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addSchoolDay">
+                Adicionar Dia Letivo
+              </button>
+            </div>
           </div>
           <div class="card-body">
             <ul class="list-group">

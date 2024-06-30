@@ -34,7 +34,45 @@
     </ul>
   </header>
 
+  <div class="modal fade" id="addClass" tabindex="-1" aria-labelledby="addClassLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addClassLabel">Adicionar Turma</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="className" class="form-label">Nome: </label>
+            <input type="text" class="form-control" id="className">
+          </div>
+          <div class="mb-3">
+            <label for="classDescription" class="form-label">Descrição: </label>
+            <input type="text" class="form-control" id="classDescription">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="createClass()">Salvar</button>
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <main class="container mt-4">
+    <div class="row">
+      <div class="col">
+        <p class="spaced">
+          <span>Turmas</span>
+          <span>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addClass">
+              Adicionar Turma
+            </button>
+          </span>
+        </p>
+      </div>
+    </div>
+
     {{#each classes}}
     <div class="row row-cols-4 mb-3">
       {{#each this}}
@@ -54,7 +92,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/global.js"></script>
   <script src="js/classes.js"></script>
-  
+
 </body>
 
 </html>
