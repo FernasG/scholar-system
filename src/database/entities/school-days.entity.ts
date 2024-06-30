@@ -5,10 +5,12 @@ import {
   Entity,
   JoinColumn,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { AttendanceLists } from './attendance-lists.entity';
+import { Classes } from './classes.entity';
 
 @Entity()
 export class SchoolDays {
@@ -33,6 +35,10 @@ export class SchoolDays {
   @OneToMany(() => AttendanceLists, (attendanceLists) => attendanceLists.school_day)
   @JoinColumn({ name: 'school_day_id' })
   attendance_lists: AttendanceLists;
+
+  @OneToOne(() => Classes, (classroom) => classroom.school_days)
+  @JoinColumn({ name: 'class_id' })
+  classroom: Classes;
 
   @CreateDateColumn({ type: 'timestamp' })
   created_at: Date;

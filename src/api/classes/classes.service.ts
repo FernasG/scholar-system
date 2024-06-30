@@ -11,8 +11,9 @@ import {
   CreateClassDto,
   FindAllClassesDto,
   UpdateClassDto,
+  UpdateClassStudentsDto,
 } from './classes.interface';
-import { Classes, Users } from '@database';
+import { Classes, ClassesStudents, Users } from '@database';
 
 @Injectable()
 export class ClassesService {
@@ -21,7 +22,7 @@ export class ClassesService {
     private readonly classesRepository: Repository<Classes>,
     private readonly datasource: DataSource,
     private readonly i18n: I18nService,
-  ) {}
+  ) { }
 
   public async create(createClassDto: CreateClassDto) {
     const { user_id, name } = createClassDto;
@@ -121,6 +122,29 @@ export class ClassesService {
     const message = this.i18n.t('classes.update_class_success');
 
     return { message, class: classroom };
+  }
+
+  public async updateStudents(id: string, updateClassStudentsDto: UpdateClassStudentsDto) {
+    const classroom = await this.classesRepository.findOneBy({ id });
+
+    if (!classroom) {
+      const message = this.i18n.t('classes.class_not_found');
+      throw new NotFoundException(message);
+    }
+
+    const { students } = updateClassStudentsDto;
+
+    await this.datasource
+      .getRepository(ClassesStudents)
+      .delete({ class_id: classroom.id })
+
+    const classStudents = students.map((studentId) => ({ class_id: classroom.id, student_id: studentId }));
+
+    await this.datasource
+      .getRepository(ClassesStudents)
+      .save(classStudents);
+
+    return { status: 'OK' };
   }
 
   public async remove(id: string) {

@@ -1,5 +1,5 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
-import { CreateClassDto, UpdateClassDto, FindAllClassesDto } from './classes.interface';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query, Put } from '@nestjs/common';
+import { CreateClassDto, UpdateClassDto, FindAllClassesDto, UpdateClassStudentsDto } from './classes.interface';
 import { ClassesService } from './classes.service';
 
 @Controller('classes')
@@ -24,6 +24,11 @@ export class ClassesController {
   @Patch(':id')
   public update(@Param('id') id: string, @Body() updateClassDto: UpdateClassDto) {
     return this.classesService.update(id, updateClassDto);
+  }
+
+  @Put(':id/students')
+  public updateStudents(@Param('id') id: string, @Body() updateClassStudentsDto: UpdateClassStudentsDto) {
+    return this.classesService.updateStudents(id, updateClassStudentsDto);
   }
 
   @Delete(':id')

@@ -29,9 +29,4 @@ export class HomeController {
     return {};
   }
 
-  @Get('classes')
-  @Render('Classes')
-  public async classes() {
-    return {};
-  }
 }
