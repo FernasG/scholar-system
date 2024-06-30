@@ -5,6 +5,7 @@ import { ClassesModule } from './classes/classes.module';
 import { StudentsModule } from './students/students.module';
 import { SchoolDaysModule } from './school-days/school-days.module';
 import { AttendanceListsModule } from './attendance-lists/attendance-lists.module';
+import { AnnotationsModule } from './annotations/annotations.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { AttendanceListsModule } from './attendance-lists/attendance-lists.modul
     ClassesModule,
     StudentsModule,
     SchoolDaysModule,
+    AnnotationsModule,
     AttendanceListsModule,
     RouterModule.register([
       {
@@ -21,6 +23,7 @@ import { AttendanceListsModule } from './attendance-lists/attendance-lists.modul
           ClassesModule,
           StudentsModule,
           SchoolDaysModule,
+          AnnotationsModule,
           AttendanceListsModule,
         ],
       },

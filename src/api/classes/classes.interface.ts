@@ -1,5 +1,5 @@
 import { PartialType } from '@nestjs/mapped-types';
-import { IsNotEmpty, IsString, IsUUID, MinLength } from 'class-validator';
+import { IsArray, IsNotEmpty, IsString, IsUUID, MinLength } from 'class-validator';
 
 class BaseClassDto {
   @IsString()
@@ -25,4 +25,10 @@ export class FindAllClassesDto {
   @IsUUID()
   @IsNotEmpty()
   user_id: string;
+}
+
+export class UpdateClassStudentsDto {
+  @IsArray()
+  @IsNotEmpty()
+  students: string[]
 }

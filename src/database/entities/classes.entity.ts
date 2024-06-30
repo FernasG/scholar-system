@@ -7,11 +7,13 @@ import {
   JoinTable,
   ManyToMany,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { Users } from './users.entity';
 import { Students } from './students.entity';
+import { SchoolDays } from './school-days.entity';
 
 @Entity()
 export class Classes {
@@ -38,6 +40,10 @@ export class Classes {
     inverseJoinColumn: { name: 'student_id', referencedColumnName: 'id' },
   })
   students: Students[];
+
+  @OneToMany(() => SchoolDays, (schoolDays) => schoolDays.classroom)
+  @JoinColumn({ name: 'class_id' })
+  school_days: SchoolDays[];
 
   @CreateDateColumn({ type: 'timestamp' })
   created_at: Date;

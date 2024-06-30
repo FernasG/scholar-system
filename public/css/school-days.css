@@ -1,0 +1,16 @@
+li.list-group-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+div.col>p {
+  color: white;
+  background: #2c3e50;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+div.col>p>span:first-child {
+  font-weight: bold;
+}

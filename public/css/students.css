@@ -1,0 +1,27 @@
+table.table {
+  border-radius: 10px;
+}
+
+main>div.table-header {
+  width: 100%;
+  height: 50px;
+  color: #A7CBD9;
+  padding: 5px 20px;
+  background: #2c3e50;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main>div.table-header>div.title {
+  font-weight: bolder;
+  font-size: 1.2em;
+}
+
+button.min-button {
+  --bs-btn-padding-x: 0.3rem;
+  --bs-btn-padding-y: 0.15rem;
+}

@@ -1,44 +1,33 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.alert-styled {
-  position: absolute;
-  z-index: 1;
-  top: 5%;
-}
-
-body {
-  background-color: #f5f7fa;
-  color: #34495e;
-}
-
-.navbar {
-  background-color: #2c3e50;
-}
-
-.navbar-brand {
-  color: #A7CBD9 !important;
-  margin-left: 20px;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.navbar-text {
-  color: #ecf0f1;
-}
-
-.nav-link {
-  color: #A7CBD9;
-  text-decoration: none;
+div.card.clickable-card {
+  user-select: none;
+  cursor: pointer;
   transition: all 500ms;
+}
+
+div.card.clickable-card:hover {
+  transform: scale(102%);
+}
+
+div.col>p {
+  color: white;
+  background: #2c3e50;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+div.col>p>span:first-child {
   font-weight: bold;
 }
 
-.nav-link:hover {
-  color: #f5f7fa;
+div.col>p.spaced {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+div.col>p.spaced>span:first-child {
+  display: flex;
+  align-items: center;
 }
 
 .card {
@@ -48,8 +37,16 @@ body {
 
 .card-header {
   background-color: #A7CBD9;
-  color: #fff;
   font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.card-header > div:first-child {
+  display: flex;
+  align-items: center;
 }
 
 .list-group-item {
